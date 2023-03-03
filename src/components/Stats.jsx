@@ -41,7 +41,7 @@ function Stats() {
       baseURL: 'https://api.gatewaybot.xyz/api/',
       headers: { 'Authorization': `Bearer ${Token}` }
     });
-    api.get("/get/stats")
+     api.get("/get/stats")
       .then(res => {
         setShardc(res.data.shardCount);
         setTcommands(res.data.totalCommands);
@@ -51,7 +51,8 @@ function Stats() {
         setTplayers(res.data.totalPlayers);
       })
       .catch(err => {
-        setIsError(err.message)
+        setIsError(err.message);
+        console.log(err);
       })
   }, []);
 
