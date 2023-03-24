@@ -41,7 +41,7 @@ function Stats() {
       baseURL: 'https://api.gatewaybot.xyz/api/',
       headers: { 'Authorization': `Bearer ${Token}` }
     });
-     api.get("/get/stats")
+    api.get("/get/stats")
       .then(res => {
         setShardc(res.data.shardCount);
         setTcommands(res.data.totalCommands);
@@ -51,8 +51,7 @@ function Stats() {
         setTplayers(res.data.totalPlayers);
       })
       .catch(err => {
-        setIsError(err.message);
-        console.log(err);
+        setIsError(err.message)
       })
   }, []);
 
@@ -94,7 +93,7 @@ function Stats() {
                 {/* <div className="statstruct"> */}
                   <div className="item">
                     <h5>Commands</h5>
-                    <span>{beauty(tcommands)}</span>
+                    <span>{tcommands}</span>
                   </div>
                   <div className="item">
                     <h5>Servers</h5>
@@ -107,11 +106,7 @@ function Stats() {
                     <span>{beauty(Math.round(tusers))}+</span>
 
                   </div>
-                  <div className="item">
-                    <h5>Music Players</h5>
-                    <span>{tplayers}</span>
-
-                  </div>
+                  
                   <div className="item">
                     <h5>Total Shards</h5>
                     <span>{shardc}</span>
